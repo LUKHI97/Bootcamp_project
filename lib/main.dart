@@ -1,4 +1,4 @@
-import 'package:bootcamp_project/HomeScreen8.dart';
+import 'package:bootcamp_project/Splash%20Screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,12 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Basic Calculator App',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
-      home: HomeScreen8(),
+      title: 'Sheared preferences',
+      home: SpalshScreen(),
     );
   }
 }
