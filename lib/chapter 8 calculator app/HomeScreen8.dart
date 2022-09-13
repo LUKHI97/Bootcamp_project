@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bootcamp_project/chapter%208%20calculator%20app/Camponants.dart';
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
@@ -25,28 +26,19 @@ class _HomeScreen8State extends State<HomeScreen8> {
             children: [
               Expanded(
                 flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          uesrInput.toString(),
-                          style: headingTextStyle,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        answer.toString(),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: AutoSizeText(
+                        maxLines: 2,
+                        uesrInput.toString(),
                         style: headingTextStyle,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               Expanded(
@@ -55,6 +47,27 @@ class _HomeScreen8State extends State<HomeScreen8> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    Divider(
+                      color: Colors.white,
+                      thickness: 5,
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '=',
+                            style: headingTextStyle,
+                          ),
+                          AutoSizeText(
+                            maxLines: 1,
+                            answer.toString(),
+                            style: headingTextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
                     Row(
                       children: [
                         MyButton(
@@ -76,6 +89,7 @@ class _HomeScreen8State extends State<HomeScreen8> {
                         MyButton(
                           title: '%',
                           onPress: (() {
+                            equalPress();
                             uesrInput += '%';
                             setState(() {});
                           }),
@@ -84,6 +98,7 @@ class _HomeScreen8State extends State<HomeScreen8> {
                           title: '/',
                           color: Color(0xffffa00a),
                           onPress: (() {
+                            equalPress();
                             uesrInput += '/';
                             setState(() {});
                           }),
@@ -96,27 +111,34 @@ class _HomeScreen8State extends State<HomeScreen8> {
                           title: '7',
                           onPress: (() {
                             uesrInput += '7';
-                            setState(() {});
+                            setState(() {
+                              equalPress();
+                            });
                           }),
                         ),
                         MyButton(
                           title: '8',
                           onPress: (() {
                             uesrInput += '8';
-                            setState(() {});
+                            setState(() {
+                              equalPress();
+                            });
                           }),
                         ),
                         MyButton(
                           title: '9',
                           onPress: (() {
                             uesrInput += '9';
-                            setState(() {});
+                            setState(() {
+                              equalPress();
+                            });
                           }),
                         ),
                         MyButton(
                           title: '*',
                           color: Color(0xffffa00a),
                           onPress: (() {
+                            equalPress();
                             uesrInput += '*';
                             setState(() {});
                           }),
@@ -129,27 +151,34 @@ class _HomeScreen8State extends State<HomeScreen8> {
                           title: '4',
                           onPress: (() {
                             uesrInput += '4';
-                            setState(() {});
+                            setState(() {
+                              equalPress();
+                            });
                           }),
                         ),
                         MyButton(
                           title: '5',
                           onPress: (() {
                             uesrInput += '5';
-                            setState(() {});
+                            setState(() {
+                              equalPress();
+                            });
                           }),
                         ),
                         MyButton(
                           title: '6',
                           onPress: (() {
                             uesrInput += '6';
-                            setState(() {});
+                            setState(() {
+                              equalPress();
+                            });
                           }),
                         ),
                         MyButton(
                           title: '-',
                           color: Color(0xffffa00a),
                           onPress: (() {
+                            equalPress();
                             uesrInput += '-';
                             setState(() {});
                           }),
@@ -162,27 +191,34 @@ class _HomeScreen8State extends State<HomeScreen8> {
                           title: '1',
                           onPress: (() {
                             uesrInput += '1';
-                            setState(() {});
+                            setState(() {
+                              equalPress();
+                            });
                           }),
                         ),
                         MyButton(
                           title: '2',
                           onPress: (() {
                             uesrInput += '2';
-                            setState(() {});
+                            setState(() {
+                              equalPress();
+                            });
                           }),
                         ),
                         MyButton(
                           title: '3',
                           onPress: (() {
                             uesrInput += '3';
-                            setState(() {});
+                            setState(() {
+                              equalPress();
+                            });
                           }),
                         ),
                         MyButton(
                           title: '+',
                           color: Color(0xffffa00a),
                           onPress: (() {
+                            equalPress();
                             uesrInput += '+';
                             setState(() {});
                           }),
@@ -195,14 +231,18 @@ class _HomeScreen8State extends State<HomeScreen8> {
                           title: '.',
                           onPress: (() {
                             uesrInput += '.';
-                            setState(() {});
+                            setState(() {
+                              equalPress();
+                            });
                           }),
                         ),
                         MyButton(
                           title: '0',
                           onPress: (() {
                             uesrInput += '';
-                            setState(() {});
+                            setState(() {
+                              equalPress();
+                            });
                           }),
                         ),
                         MyButton(
