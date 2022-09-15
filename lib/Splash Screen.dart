@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:bootcamp_project/Homepage.dart';
 import 'package:bootcamp_project/Login%20Screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SpalshScreen extends StatefulWidget {
   const SpalshScreen({super.key});
@@ -15,10 +17,24 @@ class _SpalshScreenState extends State<SpalshScreen> {
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 3), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LoginScreen()));
-    });
+    isLogin();
+  }
+
+  void isLogin() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    bool isLogin = sp.getBool('isLogin') ?? false;
+
+    if (isLogin) {
+      Timer(Duration(seconds: 3), () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
+      });
+    } else {
+      Timer(Duration(seconds: 3), () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      });
+    }
   }
 
   @override
